@@ -4,9 +4,9 @@ import { GooglePlayIcon } from "../../icons";
 
 const AppStoreCard = () => {
 	return (
-		<div className="overflow-hidden flex items-center gap-5 w-full justify-center max-w-md mx-auto text-black">
+		<div className="overflow-hidden sm:flex-row flex-col flex sm:items-center gap-3 sm:gap-5 w-full justify-center max-w-md mx-auto text-black">
 			<a href="#" target="_blank">
-				<div className="animate__animated animate__fadeInLeft hover:shadow hover:scale-[1.1] duration-300 bg-white p-2 rounded-[5px] px-4 w-full flex items-center gap-3">
+				<div className="animate__animated animate__fadeInLeft hover:shadow-lg hover:scale-[1.1] duration-300 bg-white p-2 rounded-[5px] px-4 w-full flex items-center gap-3">
 					<div className="">
 						<AppleIcon fontSize="large" />
 					</div>
@@ -18,7 +18,7 @@ const AppStoreCard = () => {
 			</a>
 
 			<a href="#" target="_blank">
-				<div className="animate__animated animate__fadeInRight hover:shadow hover:scale-[1.1] duration-300 bg-white p-2 rounded-[5px] px-4 w-full flex items-center gap-3">
+				<div className="animate__animated animate__fadeInRight hover:shadow-lg hover:scale-[1.1] duration-300 bg-white p-2 rounded-[5px] px-4 w-full flex items-center gap-3">
 					<div className="">
 						<GooglePlayIcon size={30} />
 					</div>

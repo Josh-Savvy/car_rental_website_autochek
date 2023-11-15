@@ -33,14 +33,15 @@ const HomepageHero = () => {
 		},
 	];
 
-	const randomCarImages: string[] = [CarOne.src, CarTwo.src];
+	// const randomCarImages: string[] = [CarOne.src, CarTwo.src];
+	const randomCarImages: string[] = [CarOne.src];
 	const randomIndex = Math.floor(Math.random() * randomCarImages.length);
 	const carImage = randomCarImages[randomIndex];
 
 	return (
 		<div className="bg-gradient-to-b from-[#181818] via-[#222] to-[#555] min-h-[80dvh] text-white p-3 pt-28 mb-40 lg:px-[7dvw] px-5 relative">
-			<div className="flex md:gap-20 justify-between items-start w-full">
-				<div className="hidden sm:flex flex-col items-start gap-5 col-span-3 min-w-[10%] md:min-w-[20%] lg:min-w-[25%]">
+			<div className="flex justify-between items-start w-full">
+				<div className="hidden sm:flex flex-col items-start gap-5 lg:min-w-[15dvw] xl:min-w-[30dvw] 2xl:min-w-[15dvw] ">
 					{socials.map((social, i) => (
 						<a
 							href={social.link}
@@ -54,17 +55,20 @@ const HomepageHero = () => {
 				</div>
 				<div className="flex flex-col justify-end md:mt-5 flex-grow">
 					<h1
-						className={`${kurale.className} animate__animated animate__fadeIn capitalize text-2xl xs:text-4xl sm:text-[40px] lg:text-[60px] leading-tight tracking-tight text-center`}>
-						Fast and Easy way to rent <br className="my-2" />
-						<span className="text-[#FE5C3C]"> a branded </span>
-						car
+						className={`${kurale.className} flex gap-6 flex-col animate__animated animate__fadeIn capitalize text-3xl xs:text-4xl sm:text-[40px] lg:text-[60px] 2xl:text-[65px] tracking-tight text-left sm:text-center`}>
+						Fast and Easy way to rent{" "}
+						{/* <br className="sm:flex hidden my-5" /> */}
+						<span className="text-[#FE5C3C]">
+							{" "}
+							a branded <span className="text-[#fff]">car</span>
+						</span>
 					</h1>
 					<div className="my-8 grid gap-2">
-						<p className="text-center tracking-tight">
+						<p className="text-left sm:text-center tracking-tight">
 							Discover RentalX car rental options in USA with rent
 							a car
 						</p>
-						<p className="text-center tracking-tight">
+						<p className="text-left sm:text-center tracking-tight">
 							Select from a range of car options and local
 							specials.
 						</p>
@@ -74,7 +78,7 @@ const HomepageHero = () => {
 					</div>
 				</div>
 			</div>
-			<div className="absolute -bottom-24 md:bottom-[-20vh] -left-32 animate__animated animate__slideInLeft">
+			<div className="xl:hidden absolute -bottom-44 sm:bottom-[-30dvh] xl:bottom-[-20dvh] -left-32 animate__animated animate__slideInLeft">
 				<Image
 					src={carImage}
 					className=""
@@ -82,6 +86,16 @@ const HomepageHero = () => {
 					loading="lazy"
 					width={900}
 					height={900}
+				/>
+			</div>
+			<div className="absolute hidden xl:block xl:bottom-[-40dvh] 2xl:bottom-[-25dvh] -left-32 animate__animated animate__slideInLeft">
+				<Image
+					src={carImage}
+					className=""
+					alt={carImage}
+					loading="lazy"
+					width={1050}
+					height={1050}
 				/>
 			</div>
 		</div>
