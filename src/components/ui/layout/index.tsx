@@ -5,7 +5,7 @@ import PagePreLoader from "../atoms/loaders/PagePreLoader";
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
 	return (
 		<Fragment>
-			<PagePreLoader />
+			{/* <PagePreLoader /> */}
 			<Navbar />
 			<main className="">{children}</main>
 		</Fragment>

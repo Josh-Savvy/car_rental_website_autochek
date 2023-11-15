@@ -20,11 +20,11 @@ const Navbar = () => {
 					Automobile
 				</h1>
 			</Link>
-			<div className="flex items-center gap-8">
+			<div className="hidden md:flex items-center gap-8">
 				{navLinks.map((item, i) => {
 					return (
 						<Link key={item.name} href={item.link}>
-							<div className="text-[16px] tracking-tight">
+							<div className="text-[16px] duration-300 hover:text-[#FE5C3C] tracking-tight">
 								{item.name}
 							</div>
 						</Link>
