@@ -3,14 +3,29 @@ import Link from "next/link";
 import classNames from "classnames";
 
 export const PrimaryButton = (props: IPrimaryButtonProps) => {
-	const { link, buttonText, className, ...rest } = props;
+	const { link, buttonText, className, disabled, icon, type, ...rest } =
+		props;
 	return !link ? (
-		<button {...rest} className={classNames("", className)}>
+		<button
+			type={type}
+			disabled={disabled}
+			{...rest}
+			className={classNames(
+				"bg-[#FE5C3C] flex text-center rounded-[5px] select-none cursor-pointer",
+				className,
+				disabled ? "cursor-not-allowed" : "",
+			)}>
 			{buttonText}
 		</button>
 	) : (
 		<Link href={link}>
-			<button {...rest} className={classNames("", className)}>
+			<button
+				{...rest}
+				className={classNames(
+					"bg-[#FE5C3C] flex text-center rounded-[5px] select-none cursor-pointer",
+					className,
+					disabled ? "cursor-not-allowed" : "",
+				)}>
 				{buttonText}
 			</button>
 		</Link>
