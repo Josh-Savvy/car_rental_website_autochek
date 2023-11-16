@@ -3,7 +3,7 @@ import ArrowDropDownOutlinedIcon from "@mui/icons-material/ArrowDropDownOutlined
 import CalendarMonthOutlinedIcon from "@mui/icons-material/CalendarMonthOutlined";
 import Calendar from "react-calendar";
 
-const ExploreCarsNavReturnDate = ({
+const ReturnDateSelector = ({
 	openCalendar,
 	setOpenCalendar,
 }: {
@@ -13,12 +13,15 @@ const ExploreCarsNavReturnDate = ({
 	>;
 }) => {
 	return (
-		<div className="">
+		<div className="overflow-hidden">
 			<div
 				className="flex items-center gap-3 cursor-pointer select-none"
 				onClick={() => {
-					if (!openCalendar) setOpenCalendar("returnCalendar");
-					setOpenCalendar(false);
+					if (openCalendar !== "returnCalendar")
+						setOpenCalendar("returnCalendar");
+					else {
+						setOpenCalendar(false);
+					}
 				}}>
 				<CalendarMonthOutlinedIcon
 					fontSize="inherit"
@@ -33,7 +36,7 @@ const ExploreCarsNavReturnDate = ({
 				/>
 			</div>
 			{openCalendar === "returnCalendar" && (
-				<div className="absolute top-16 md:left-[30%] w-full left-0 z-20">
+				<div className="absolute top-16 w-full z-20 overflow-hidden">
 					<Calendar
 						// className="bg-white rounded shadow p-3 px-5 w-auto sm:min-w-[50vw] flex items-center flex-col gap-2"
 						tileClassName=""
@@ -49,4 +52,4 @@ const ExploreCarsNavReturnDate = ({
 		</div>
 	);
 };
-export default ExploreCarsNavReturnDate;
+export default ReturnDateSelector;

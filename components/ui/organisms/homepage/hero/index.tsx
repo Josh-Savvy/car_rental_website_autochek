@@ -52,12 +52,26 @@ const HomepageHero = () => {
 				</div>
 				<div className="flex flex-col justify-end md:mt-5 flex-grow h-full gap-4">
 					<h1
-						className={` flex gap-6 flex-col animate__animated animate__fadeInUp capitalize text-3xl xs:text-4xl sm:text-[40px] lg:text-[65px] 2xl:text-[85px] tracking-tight text-left sm:text-center`}>
+						style={{
+							fontFamily: `Lucida Sans`,
+						}}
+						className={` flex gap-6 flex-col animate__animated animate__fadeInUp capitalize text-3xl xs:text-4xl sm:text-6xl xl:text-7xl 2xl:text-[85px] tracking-tight text-left sm:text-center`}>
 						Fast and Easy way to rent{" "}
 						{/* <br className="sm:flex hidden my-5" /> */}
-						<span className="text-[#FE5C3C]">
+						<span
+							style={{
+								fontFamily: `Lucida Sans`,
+							}}
+							className="text-[#FE5C3C]">
 							{" "}
-							a branded <span className="text-[#fff]">car</span>
+							a branded{" "}
+							<span
+								style={{
+									fontFamily: `Lucida Sans`,
+								}}
+								className="text-[#fff]">
+								car
+							</span>
 						</span>
 					</h1>
 					<div className="my-8 grid gap-2 text-lg">
@@ -78,7 +92,7 @@ const HomepageHero = () => {
 					</div> */}
 				</div>
 			</div>
-			<div className="xl:hidden absolute -bottom-44 sm:bottom-[-30dvh] xl:bottom-[-20dvh] -left-36 animate__animated animate__slideInLeft">
+			<div className="xl:hidden absolute -bottom-44 xs:bottom-[-30dvh] sm:bottom-[-40dvh] -left-36 animate__animated animate__slideInLeft">
 				<img
 					src={carImage}
 					className=""

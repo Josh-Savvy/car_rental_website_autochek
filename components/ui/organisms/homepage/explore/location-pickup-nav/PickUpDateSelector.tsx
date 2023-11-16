@@ -1,11 +1,9 @@
-"use client";
-
 import React, { Dispatch, SetStateAction, useState } from "react";
 import ArrowDropDownOutlinedIcon from "@mui/icons-material/ArrowDropDownOutlined";
 import EditCalendarOutlinedIcon from "@mui/icons-material/EditCalendarOutlined";
 import Calendar from "react-calendar";
 
-const ExploreCarsNavPickUpDate = ({
+const PickUpDateSelector = ({
 	openCalendar,
 	setOpenCalendar,
 }: {
@@ -15,12 +13,15 @@ const ExploreCarsNavPickUpDate = ({
 	>;
 }) => {
 	return (
-		<div className="">
+		<div className="overflow-hidden">
 			<div
 				className="flex items-center gap-3 cursor-pointer select-none"
 				onClick={() => {
-					if (!openCalendar) setOpenCalendar("pickupCalendar");
-					setOpenCalendar(false);
+					if (openCalendar !== "pickupCalendar")
+						setOpenCalendar("pickupCalendar");
+					else {
+						setOpenCalendar(false);
+					}
 				}}>
 				<EditCalendarOutlinedIcon
 					fontSize="inherit"
@@ -35,7 +36,7 @@ const ExploreCarsNavPickUpDate = ({
 				/>
 			</div>
 			{openCalendar === "pickupCalendar" && (
-				<div className="absolute top-16 md:left-[30%] w-full left-0 z-20">
+				<div className="absolute top-16 w-full z-20">
 					<Calendar
 						// className="bg-white rounded shadow p-3 px-5 w-auto sm:min-w-[50vw] flex items-center flex-col gap-2"
 						tileClassName=""
@@ -52,4 +53,4 @@ const ExploreCarsNavPickUpDate = ({
 	);
 };
 
-export default ExploreCarsNavPickUpDate;
+export default PickUpDateSelector;

@@ -1,7 +1,7 @@
 import { Key } from "react";
 
 export default interface ICar {
-	id: Key;
+	id: string | number;
 	title: string;
 	imageUrl: string;
 	year: number;
@@ -35,4 +35,9 @@ export default interface ICar {
 	fuelType: string;
 	marketplaceVisibleDate: string;
 	ccMeasurement: number;
+}
+export interface ICarMake {
+	id: number;
+	name: string;
+	imageUrl: string;
 }

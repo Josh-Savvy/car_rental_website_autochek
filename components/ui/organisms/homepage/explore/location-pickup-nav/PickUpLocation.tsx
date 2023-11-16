@@ -2,7 +2,7 @@ import React from "react";
 import FmdGoodOutlinedIcon from "@mui/icons-material/FmdGoodOutlined";
 import ArrowDropDownOutlinedIcon from "@mui/icons-material/ArrowDropDownOutlined";
 
-const ExploreCarsNavLocation = () => {
+const PickUpLocation = () => {
 	const locations = [
 		"Nigeria",
 		"London",
@@ -34,4 +34,4 @@ const ExploreCarsNavLocation = () => {
 	);
 };
 
-export default ExploreCarsNavLocation;
+export default PickUpLocation;
