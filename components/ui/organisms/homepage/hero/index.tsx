@@ -1,6 +1,6 @@
+/* eslint-disable @next/next/no-img-element */
 import Image from "next/image";
 import React from "react";
-import CarOne from "@/assets/images/audi_1.webp";
 import AppStoreCard from "@/components/ui/atoms/cards/common/AppStoreCard";
 import {
 	FacebookIcon,
@@ -31,7 +31,7 @@ const HomepageHero = () => {
 	];
 
 	// const randomCarImages: string[] = [CarOne.src, CarTwo.src];
-	const randomCarImages: string[] = [CarOne.src];
+	const randomCarImages: string[] = ["/assets/images/audi_1.webp"];
 	const randomIndex = Math.floor(Math.random() * randomCarImages.length);
 	const carImage = randomCarImages[randomIndex];
 
@@ -52,7 +52,7 @@ const HomepageHero = () => {
 				</div>
 				<div className="flex flex-col justify-end md:mt-5 flex-grow h-full gap-4">
 					<h1
-						className={` flex gap-6 flex-col animate__animated animate__fadeIn animate__slow capitalize text-3xl xs:text-4xl sm:text-[40px] lg:text-[65px] 2xl:text-[85px] tracking-tight text-left sm:text-center`}>
+						className={` flex gap-6 flex-col animate__animated animate__fadeInUp capitalize text-3xl xs:text-4xl sm:text-[40px] lg:text-[65px] 2xl:text-[85px] tracking-tight text-left sm:text-center`}>
 						Fast and Easy way to rent{" "}
 						{/* <br className="sm:flex hidden my-5" /> */}
 						<span className="text-[#FE5C3C]">
@@ -79,7 +79,7 @@ const HomepageHero = () => {
 				</div>
 			</div>
 			<div className="xl:hidden absolute -bottom-44 sm:bottom-[-30dvh] xl:bottom-[-20dvh] -left-36 animate__animated animate__slideInLeft">
-				<Image
+				<img
 					src={carImage}
 					className=""
 					alt={carImage}
@@ -89,7 +89,7 @@ const HomepageHero = () => {
 				/>
 			</div>
 			<div className="absolute hidden xl:block xl:bottom-[-40dvh] 2xl:bottom-[-25dvh] -left-36 animate__animated animate__slideInLeft">
-				<Image
+				<img
 					src={carImage}
 					className=""
 					alt={carImage}

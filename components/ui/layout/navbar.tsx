@@ -27,10 +27,12 @@ const Navbar = () => {
 							key={item.label}
 							href={item.link}
 							className="relative group">
-							<div className="text-[16px] duration-300 hover:text-[#FE5C3C] tracking-tight">
-								{item.label}
-							</div>
-							<span className="absolute -bottom-1 bg-white h-[2px] w-0 group-hover:w-full left-0 duration-300" />
+							<>
+								<div className="text-[16px] duration-300 hover:text-[#FE5C3C] tracking-tight">
+									{item.label}
+								</div>
+								<span className="absolute -bottom-1 bg-white h-[2px] w-0 group-hover:w-full left-0 duration-300" />
+							</>
 						</Link>
 					);
 				})}

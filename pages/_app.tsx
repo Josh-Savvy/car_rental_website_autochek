@@ -6,9 +6,6 @@ import "react-calendar/dist/Calendar.css";
 import { Fragment } from "react";
 import { AppProps } from "next/app";
 import Head from "next/head";
-import { useRouter } from "next/router";
-import NProgress from "nprogress";
-import "nprogress/nprogress.css";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import RootLayout from "@/components/ui/layout";
@@ -38,16 +35,10 @@ export default function App({ Component, pageProps }: AppProps) {
 				/>
 			</Head>
 			<RootLayout>
-				{initialLoad ? (
-					<PagePreLoader />
-				) : (
-					<>
-						<ToastContainer />
-						<Component {...pageProps} />
-					</>
-				)}
+				<ToastContainer />
+				{/* <PagePreLoader /> */}
+				<Component {...pageProps} />
 			</RootLayout>
-			;
 		</Fragment>
 	);
 }

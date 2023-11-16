@@ -5,7 +5,11 @@ export default function Document() {
 	return (
 		<Html dir="ltr">
 			<Head>
-				<link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon" />
+				<link
+					rel="icon"
+					href="/assets/images/favicon.ico"
+					type="image/x-icon"
+				/>
 			</Head>
 			<body>
 				<Main />
