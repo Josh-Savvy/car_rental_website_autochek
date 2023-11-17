@@ -3,8 +3,16 @@ import Link from "next/link";
 import classNames from "classnames";
 
 export const PrimaryButton = (props: IPrimaryButtonProps) => {
-	const { link, buttonText, className, disabled, icon, type, ...rest } =
-		props;
+	const {
+		link,
+		buttonText,
+		className,
+		disabled,
+		icon,
+		type,
+		iconClass,
+		...rest
+	} = props;
 	return !link ? (
 		<button
 			type={type}
@@ -15,7 +23,8 @@ export const PrimaryButton = (props: IPrimaryButtonProps) => {
 				className,
 				disabled ? "cursor-not-allowed" : "",
 			)}>
-			{buttonText}
+			{buttonText}{" "}
+			<span className={classNames("", iconClass)}>{icon}</span>
 		</button>
 	) : (
 		<Link href={link}>

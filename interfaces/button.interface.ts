@@ -6,4 +6,5 @@ export default interface IPrimaryButtonProps
 	disabled?: boolean;
 	type?: "submit" | "reset" | "button";
 	link?: string;
+	iconClass?: string;
 }
