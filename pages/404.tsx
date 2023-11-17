@@ -20,16 +20,19 @@ const NotFoundPage = () => {
 				<main className="flex items-center justify-center h-screen bg-gray-100 dark:bg-dark">
 					<div className="p-4 space-y-4">
 						<div className="flex flex-col items-start space-y-3">
-							<p className="font-semibold text-red-500 text-9xl">404</p>
+							<p className="font-semibold text-red-500 text-9xl">
+								404
+							</p>
 							<div className="space-y-2">
-								<h1 id="pageTitle" className="flex items-center space-x-2">
+								<h1
+									id="pageTitle"
+									className="flex items-center space-x-2">
 									<svg
 										aria-hidden="true"
 										className="w-6 h-6 text-red-500"
 										fill="none"
 										viewBox="0 0 24 24"
-										stroke="currentColor"
-									>
+										stroke="currentColor">
 										<path
 											strokeLinecap="round"
 											strokeLinejoin="round"
@@ -47,7 +50,7 @@ const NotFoundPage = () => {
 								<p className="text-base font-normal">
 									You may return back to the
 									<Link href="/">
-										<span className="px-1 text-[#00D569] cursor-pointer hover:underline">
+										<span className="px-1 text-[#FE5C3C] cursor-pointer hover:underline">
 											homepage
 										</span>
 									</Link>

@@ -25,7 +25,7 @@ const CarHighLightWithDetailsCardComp = (
 				src={car.imageUrl || ""}
 				alt={car.title}
 				// className="w-full h-full duration-300 group-hover:scale-105 object-cover bg-[#F7F4F3] z-10 relative"
-				className="w-full h-full duration-300 object-cover bg-[#F7F4F3] z-10 relative"
+				className="w-full h-full duration-300 object-cover bg-[#F7F4F3] hover:scale-105 z-10 relative"
 				loading="lazy"
 			/>
 			<div className="absolute top-0 bg-[#F7F4F3] w-full h-full animate__animated animate__fadeIn animate__infinite" />
@@ -76,14 +76,22 @@ const CarHighLightWithDetailsCardComp = (
 				</div>
 			</div>
 			<div className="flex justify-between items-center mt-5 text-[#444]">
-				<h1 className="text-[#000] text-xl font-medium flex gap-1">
-					₦{car.installment.toLocaleString()}
-					<span className="text-[#444]">/day</span>
-				</h1>
-				<PrimaryButton
-					buttonText="Rent Now"
-					className="p-2 px-5 rounded text-white"
-				/>
+				{car.installment !== 0 ? (
+					<>
+						<h1 className="text-[#000] text-xl font-medium flex gap-1">
+							₦{car.installment.toLocaleString()}
+							<span className="text-[#444]">/day</span>
+						</h1>
+						<PrimaryButton
+							buttonText="Rent Now"
+							className="p-2 px-5 rounded text-white"
+						/>
+					</>
+				) : (
+					<div className="text-[#d31119] text-lg font-medium text-center">
+						Unavailable
+					</div>
+				)}
 			</div>
 		</div>
 	);

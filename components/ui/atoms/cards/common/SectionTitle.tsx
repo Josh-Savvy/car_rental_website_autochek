@@ -15,11 +15,7 @@ const SectionTitle = ({
 }) => {
 	return animate ? (
 		<AnimationOnScroll animateIn={"animate__fadeInUp"} animateOnce>
-			<div
-				className={classNames(
-					"container mx-auto px-5",
-					classes?.container,
-				)}>
+			<div className={classNames(classes?.container)}>
 				<h1
 					className={classNames(
 						"text-center text-2xl my-5 text-[#111]",
@@ -36,11 +32,7 @@ const SectionTitle = ({
 			</div>
 		</AnimationOnScroll>
 	) : (
-		<div
-			className={classNames(
-				"container mx-auto px-5",
-				classes?.container,
-			)}>
+		<div className={classNames(classes?.container)}>
 			<h1
 				className={classNames(
 					"text-center text-2xl my-5 text-[#111]",

@@ -4,14 +4,15 @@ import ExploreCarsContainer from "./ExploreCarsContainer";
 
 const ExploreTopDeals = () => {
 	return (
-		<section className="pt-16 md:pt-[10dvh] my-10 min-h-[80dvh]">
+		<section className="pt-10 md:pt-[5dvh] my-5 mb-10 min-h-[80dvh]">
 			<SectionTitle
 				animate
 				title="Best Services"
 				subtitle="Explore our Top Deals from Top Rated Dealers"
 				classes={{
 					subtitle:
-						"text-4xl max-w-lg mx-auto font-semibold capitalize mb-6",
+						"text-4xl max-w-sm mx-auto font-semibold capitalize mb-6",
+					container: "px-5",
 				}}
 			/>
 			<ExploreCarsContainer />

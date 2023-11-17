@@ -3,7 +3,9 @@ import ExploreTopDeals from "@/components/ui/organisms/homepage/explore-top-deal
 import React, { Fragment } from "react";
 import PickUpLocationNav from "@/components/ui/organisms/homepage/location-pickup-nav";
 import WhyChooseUs from "@/components/ui/organisms/homepage/why-choose-us";
-import HomepageTetimonials from "@/components/ui/organisms/homepage/testimonials";
+import HomepageTestimonialsSection from "@/components/ui/organisms/homepage/testimonials-section";
+import DownloadSection from "@/components/ui/organisms/homepage/download-section";
+import ReadOurStories from "@/components/ui/organisms/homepage/story-section";
 
 const HomepageTemplate = () => {
 	return (
@@ -12,7 +14,9 @@ const HomepageTemplate = () => {
 			<PickUpLocationNav />
 			<ExploreTopDeals />
 			<WhyChooseUs />
-			<HomepageTetimonials />
+			<HomepageTestimonialsSection />
+			<DownloadSection />
+			<ReadOurStories />
 		</Fragment>
 	);
 };

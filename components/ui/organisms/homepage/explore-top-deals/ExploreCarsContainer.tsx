@@ -23,7 +23,7 @@ const ExploreCarsContainer = () => {
 	} = useCars({
 		query: selectedBrand?.name,
 	});
-
+	const { isExtraLargeScreen } = useWindowSize();
 	return (
 		<>
 			<TopDealBrandSelector
@@ -54,7 +54,9 @@ const ExploreCarsContainer = () => {
 					<>
 						<ShowCaseTopDealCars
 							loading={carsLoading}
-							highlightedCars={Array.from({ length: 4 })}
+							highlightedCars={Array.from({
+								length: isExtraLargeScreen ? 5 : 4,
+							})}
 						/>
 					</>
 				</div>

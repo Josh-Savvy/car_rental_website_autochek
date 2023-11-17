@@ -8,28 +8,9 @@ import {
 	LinkedinIcon,
 } from "@/components/ui/atoms/icons";
 import StatsHighlightCard from "@/components/ui/atoms/cards/car/StatsHighlightCard";
-
-type SocialLinkType = { link: string; platform: string; icon: JSX.Element };
+import socialLinks from "@/data/nav/socialLinks";
 
 const HomepageHero = () => {
-	const socials: SocialLinkType[] = [
-		{
-			link: "#",
-			platform: "Facebook",
-			icon: <FacebookIcon color="#fff" size={25} />,
-		},
-		{
-			link: "#",
-			platform: "Instagram",
-			icon: <InstagramIcon color="#fff" size={25} />,
-		},
-		{
-			link: "#",
-			platform: "LinkedIn",
-			icon: <LinkedinIcon color="#fff" size={25} />,
-		},
-	];
-
 	const randomCarImages: string[] = ["/assets/images/audi_1.webp"];
 	const randomIndex = Math.floor(Math.random() * randomCarImages.length);
 	const carImage = randomCarImages[randomIndex];
@@ -38,16 +19,18 @@ const HomepageHero = () => {
 		<section className="bg-gradient-to-b from-[#181818] via-[#222] to-[#555] min-h-[90dvh] text-white p-3 pt-28 mb-40 lg:px-[7dvw] px-5 relative">
 			<div className="flex justify-between items-start w-full h-full">
 				<div className="hidden sm:flex flex-col items-start gap-5 lg:min-w-[15dvw] xl:min-w-[25dvw] 2xl:min-w-[15dvw] ">
-					{socials.map((social, i) => (
-						<a
-							href={social.link}
-							title={social.platform}
-							key={social.platform}>
-							<div className="hover:bg-white/30 backdrop-blur-md hover:border-transparent duration-300 border border-white animate__animated animate__fadeIn p-3 flex items-center justify-center rounded-full">
-								{social.icon}
-							</div>
-						</a>
-					))}
+					{socialLinks
+						.map((social, i) => (
+							<a
+								href={social.link}
+								title={social.platform}
+								key={social.platform}>
+								<div className="hover:bg-white/30 backdrop-blur-md hover:border-transparent duration-300 border border-white animate__animated animate__fadeIn p-3 flex items-center justify-center rounded-full">
+									{social.icon}
+								</div>
+							</a>
+						))
+						.slice(0, 3)}
 				</div>
 				<div className="flex flex-col justify-end md:mt-5 flex-grow h-full gap-4">
 					<h1

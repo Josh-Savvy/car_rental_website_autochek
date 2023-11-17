@@ -25,10 +25,9 @@ const TopDealBrandSelector = ({
 								<div
 									key={i}
 									onClick={() => {
-										if (onBrandSelect && !loading)
-											onBrandSelect(brand);
+										if (onBrandSelect) onBrandSelect(brand);
 									}}
-									className={`p-2 px-6 hidden md:flex items-center duration-300 gap-3 shadow rounded-lg select-none cursor-pointer animate__animated animate__fadeInUp ${
+									className={`p-2 px-6 hidden md:flex items-center duration-300 gap-3 shadow rounded-lg select-none cursor-pointer animate__animated animate__fadeIn ${
 										selectedBrand &&
 										selectedBrand.id === brand.id
 											? "bg-[#FE5C3C] text-white"
