@@ -43,7 +43,7 @@ const ExploreCarsContainer = () => {
 						/>
 					</>
 				) : (
-					<div className="mx-auto flex items-center justify-center min-h-[30dvh] text-xl capitalize">
+					<div className="mx-auto flex sm:flex-row flex-col items-center justify-center min-h-[30dvh] text-xl capitalize">
 						Sorry, cars of this model are Unavailable At the moment.
 					</div>
 				)

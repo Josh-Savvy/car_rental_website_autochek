@@ -26,7 +26,6 @@ const useCars = (props?: { query?: string }) => {
 			if (!loading) setLoading(true);
 			const cars = await API.searchCars({ query: props?.query || "" });
 			setHighlightedCars(cars.result);
-			console.log(cars);
 		})()
 			.then(() => {
 				setLoading(false);

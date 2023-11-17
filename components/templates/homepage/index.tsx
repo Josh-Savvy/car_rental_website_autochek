@@ -3,6 +3,7 @@ import ExploreTopDeals from "@/components/ui/organisms/homepage/explore-top-deal
 import React, { Fragment } from "react";
 import PickUpLocationNav from "@/components/ui/organisms/homepage/location-pickup-nav";
 import WhyChooseUs from "@/components/ui/organisms/homepage/why-choose-us";
+import HomepageTetimonials from "@/components/ui/organisms/homepage/testimonials";
 
 const HomepageTemplate = () => {
 	return (
@@ -11,6 +12,7 @@ const HomepageTemplate = () => {
 			<PickUpLocationNav />
 			<ExploreTopDeals />
 			<WhyChooseUs />
+			<HomepageTetimonials />
 		</Fragment>
 	);
 };

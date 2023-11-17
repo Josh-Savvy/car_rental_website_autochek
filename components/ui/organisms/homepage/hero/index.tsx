@@ -30,7 +30,6 @@ const HomepageHero = () => {
 		},
 	];
 
-	// const randomCarImages: string[] = [CarOne.src, CarTwo.src];
 	const randomCarImages: string[] = ["/assets/images/audi_1.webp"];
 	const randomIndex = Math.floor(Math.random() * randomCarImages.length);
 	const carImage = randomCarImages[randomIndex];
