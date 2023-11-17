@@ -4,9 +4,11 @@ import {
 	GetCarBrandsResponseType,
 } from "@/interfaces/api-response.interface";
 
-export const getCars = async (): Promise<GetCarsResponseType> => {
-	
-	const response = await axiosInstance.get("/car/search");
+export const searchCars = async (args?: {
+	query?: string;
+}): Promise<GetCarsResponseType> => {
+	const { query } = args || {};
+	const response = await axiosInstance.get(`/car/search?query=${query}`);
 	return response.data;
 };
 export const getCarBrands = async (): Promise<GetCarBrandsResponseType> => {

@@ -20,3 +20,20 @@ body {
 	-ms-overflow-style: none !important;
 	scrollbar-width: none !important;
 }
+
+.auto_scroll_container {
+	animation: scrollLeftAnimation 9s steps(3) linear infinite;
+}
+
+.auto_scroll_container:hover {
+	animation-play-state: paused;
+}
+
+@keyframes scrollLeftAnimation {
+	0% {
+		transform: translateX(0);
+	}
+	100% {
+		transform: translateX(-100%);
+	}
+}

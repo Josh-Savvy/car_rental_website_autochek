@@ -1,9 +1,8 @@
 import React from "react";
-import ExploreCarsShowCase from "./TopDeals";
-import ExploreCarsNav from "./location-pickup-nav";
 import SectionTitle from "@/components/ui/atoms/cards/common/SectionTitle";
+import ExploreCarsContainer from "./ExploreCarsContainer";
 
-const ExploreCars = () => {
+const ExploreTopDeals = () => {
 	return (
 		<section className="pt-16 md:pt-[10dvh] my-10 min-h-[80dvh]">
 			<SectionTitle
@@ -15,9 +14,9 @@ const ExploreCars = () => {
 						"text-4xl max-w-lg mx-auto font-semibold capitalize mb-6",
 				}}
 			/>
-			<ExploreCarsShowCase />
+			<ExploreCarsContainer />
 		</section>
 	);
 };
 
-export default ExploreCars;
+export default ExploreTopDeals;

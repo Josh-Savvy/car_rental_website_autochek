@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 const useWindowSize = () => {
 	const [windowWidth, setWindowWidth] = useState<number>(0);
@@ -13,10 +13,12 @@ const useWindowSize = () => {
 				setWindowWidth(window.innerWidth),
 			);
 	}, []);
+
 	const isSmallScreen: boolean = windowWidth <= 768;
 	const isMediumScreen: boolean = windowWidth >= 768;
 	const isLargeScreen: boolean = windowWidth >= 1024;
 	const isExtraLargeScreen: boolean = windowWidth >= 1600;
+
 	return { isLargeScreen, isExtraLargeScreen, isMediumScreen, isSmallScreen };
 };
 

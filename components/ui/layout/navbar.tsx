@@ -17,7 +17,8 @@ const Navbar = () => {
 		{ link: "/#contact", label: "Contact" },
 	];
 	return (
-		<div className="flex items-center justify-between bg-[#1818189A] backdrop-blur-md text-white fixed top-0 p-5 h-auto w-full lg:px-[6dvw] z-40">
+		<div className="flex items-center justify-between bg-[#181818] backdrop-blur-md text-white top-0 p-5 h-auto w-full lg:px-[6dvw] z-40">
+			{/* <div className="flex items-center justify-between bg-[#1818189A] backdrop-blur-md text-white fixed top-0 p-5 h-auto w-full lg:px-[6dvw] z-40"> */}
 			<Link href="/">
 				<h1 className="capitalize text-[#FE5C3C] text-2xl cursor-pointer">
 					Automobile

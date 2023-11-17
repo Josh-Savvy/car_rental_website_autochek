@@ -36,9 +36,8 @@ const PickUpDateSelector = ({
 				/>
 			</div>
 			{openCalendar === "pickupCalendar" && (
-				<div className="absolute top-16 w-full z-20">
+				<div className="absolute top-16 w-full z-50">
 					<Calendar
-						// className="bg-white rounded shadow p-3 px-5 w-auto sm:min-w-[50vw] flex items-center flex-col gap-2"
 						tileClassName=""
 						activeStartDate={new Date()}
 						onChange={(value) => {
