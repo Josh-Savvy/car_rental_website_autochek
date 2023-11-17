@@ -7,16 +7,18 @@ import LocalGasStationIcon from "@mui/icons-material/LocalGasStation";
 import SpeedIcon from "@mui/icons-material/Speed";
 import { GearTransmissionIcon } from "../../../icons";
 import { PrimaryButton } from "../../../buttons";
+import { motion } from "framer-motion";
+import CarHighlightSkeletonCard from "../../../loaders/card-skeletons/CarHighlightSkeletonCard";
 
 interface CarHighLightWithDetailsCardProps {
-	index?: number;
 	car: ICar;
+	loading: boolean;
 }
 
 const CarHighLightWithDetailsCardComp = (
 	props: CarHighLightWithDetailsCardProps,
 ) => {
-	const { car } = props;
+	const { car, loading } = props;
 	const ImageSection = () => (
 		<div className="h-[55%] w-full rounded-[10px] overflow-hidden relative">
 			<img
@@ -34,10 +36,18 @@ const CarHighLightWithDetailsCardComp = (
 		<div className="grid gap-1 mt-3">
 			<div className="flex items-center gap-1">
 				<StarOutlinedIcon fontSize="small" className="text-[#FE5C3C]" />
-				<span className="font-[500] text-[#666]">
-					{car.gradeScore.toFixed(1)}
-				</span>
-				<span className="font-[500] text-[#666]">(50+ Reviews)</span>
+				{car.gradeScore ? (
+					<>
+						<span className="font-[500] text-[#666]">
+							{car?.gradeScore.toFixed(1)}
+						</span>
+						<span className="font-[500] text-[#666]">
+							(50+ Reviews)
+						</span>
+					</>
+				) : (
+					<span className="font-[500] text-[#666]">No reviews</span>
+				)}
 			</div>
 			<h1 className="text-xl font-semibold px-1">{car.title}</h1>
 			<div className="flex justify-between items-center mt-5 text-[#444]">
@@ -79,11 +89,16 @@ const CarHighLightWithDetailsCardComp = (
 	);
 
 	return (
-		<div className="inline-block px-3 animate__animated animate__fadeInUp snap-start group">
-			<div className="w-[320px] sm:w-[385px] h-[425px] sm:h-[525px] max-w-sm 2xl:max-w-md overflow-hidden rounded-[10px] p-4 bg-white hover:shadow-lg transition-shadow duration-300 ease-in-out">
-				<ImageSection />
-				<DetailSection />
-			</div>
+		<div className="inline-block px-3 animate__animated animate__fadeIn snap-start group">
+			{!loading ? (
+				<div
+					className={`w-[320px] sm:w-[385px] h-[425px] sm:h-[525px] max-w-sm 2xl:max-w-md overflow-hidden rounded-[10px] p-4 bg-white hover:shadow-lg transition-shadow duration-300 ease-in-out`}>
+					<ImageSection />
+					<DetailSection />
+				</div>
+			) : (
+				<CarHighlightSkeletonCard.Main />
+			)}
 		</div>
 	);
 };

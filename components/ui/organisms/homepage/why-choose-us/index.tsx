@@ -10,13 +10,12 @@ const WhyChooseUs = () => {
 	const containerRef = useRef<HTMLElement>(null);
 	const { scrollYProgress } = useScroll({
 		target: containerRef,
-		offset: ["start start", "center start"],
+		offset: ["center center", "center start"],
 	});
-	const y = useTransform(scrollYProgress, [0, 1], [0, -1000]);
+	const y = useTransform(scrollYProgress, [0, 1], [0, -300]);
+
 	return (
-		<section
-			className="min-h-screen p-5 py-8 bg-white"
-			ref={containerRef}>
+		<section className="min-h-screen p-5 py-8 bg-white" ref={containerRef}>
 			<SectionTitle
 				title="Why Choose us"
 				subtitle="We offer best experience with our rental deals"
@@ -28,13 +27,17 @@ const WhyChooseUs = () => {
 				animate
 			/>
 			<div className="flex items-center justify-center mx-auto w-full">
-				<div className="w-full relative bottom-24">
+				<div className="w-full relative bottom-36">
 					<AnimationOnScroll
 						animateIn="animate__fadeInLeft"
 						animateOnce>
 						<motion.img
+							transition={{
+								type: "spring",
+								damping: 10,
+								stiffness: 100,
+							}}
 							style={{ y }}
-							animate={{ transition: { duration: 0.5 } }}
 							src="/assets/images/image_Car.png"
 							alt="car_example"
 							className="w-auto h-[75vh] max-w-[70vw] absolute -left-10 top-0 "

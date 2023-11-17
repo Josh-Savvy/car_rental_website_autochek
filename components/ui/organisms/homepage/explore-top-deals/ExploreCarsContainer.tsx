@@ -18,27 +18,29 @@ const ExploreCarsContainer = () => {
 	const {
 		carBrands,
 		cars: highlightedCars,
-		loading,
+		carBrandsLoading,
+		carsLoading,
 	} = useCars({
 		query: selectedBrand?.name,
 	});
 
 	return (
 		<>
-			{carBrands.length >= 1 && (
-				<TopDealBrandSelector
-					carBrands={carBrands}
-					selectedBrand={selectedBrand}
-					onBrandSelect={(brand) => {
-						console.log(brand);
-						setSelectedBrand(brand);
-					}}
-				/>
-			)}
-			{!loading ? (
+			<TopDealBrandSelector
+				carBrands={carBrands}
+				loading={carBrandsLoading}
+				selectedBrand={selectedBrand}
+				onBrandSelect={(brand) => {
+					console.log(brand);
+					setSelectedBrand(brand);
+				}}
+			/>
+
+			{!carsLoading ? (
 				highlightedCars.length >= 1 ? (
 					<>
 						<ShowCaseTopDealCars
+							loading={carsLoading}
 							highlightedCars={highlightedCars}
 						/>
 					</>
@@ -49,11 +51,14 @@ const ExploreCarsContainer = () => {
 				)
 			) : (
 				<div className="flex justify-center items-center my-20">
-					<ActivityIndicator
-						size={60}
-						className="border-[#000] border-[5px]"
-					/>
+					<>
+						<ShowCaseTopDealCars
+							loading={carsLoading}
+							highlightedCars={Array.from({ length: 4 })}
+						/>
+					</>
 				</div>
+				// CarHighlightSkeletonCard
 			)}
 		</>
 	);

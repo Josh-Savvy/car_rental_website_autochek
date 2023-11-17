@@ -12,7 +12,7 @@ const HomepageTetimonials = () => {
 	const y = useTransform(scrollYProgress, [0, 2], [0, -300]);
 	return (
 		<section
-			className="min-h-screen p-5 py-8 bg-[#181A23] mb-[200vh] pt-20"
+			className="min-h-screen p-5 py-8 bg-[#181A23] mb-[200vh] pt-20 overflow-hidden"
 			ref={containerRef}>
 			<div className="flex items-center justify-center mx-auto w-full">
 				<div className="flex-grow min-w-[40%]">
@@ -23,12 +23,9 @@ const HomepageTetimonials = () => {
 					</div>
 				</div>
 				<div className="w-full relative top-24">
-					<AnimationOnScroll
-						animateIn="animate__fadeInRight"
-						animateOnce>
+					<AnimationOnScroll animateIn="animate__fadeInRight">
 						<motion.img
 							style={{ y }}
-							animate={{ transition: { duration: 0.5 } }}
 							src="/assets/images/image_Car.png"
 							alt="car_example"
 							className="w-auto h-[75vh] max-w-[70vw] absolute -right-20 top-0 "

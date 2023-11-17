@@ -5,7 +5,8 @@ import * as API from "@/services/api";
 const useCars = (props?: { query?: string }) => {
 	const [highlightedCars, setHighlightedCars] = useState<ICar[]>([]);
 	const [carBrands, setCarBrands] = useState<ICarMake[]>([]);
-	const [loading, setLoading] = useState<boolean>(true);
+	const [carBrandsLoading, setCarBrandsLoading] = useState<boolean>(true);
+	const [carsLoading, setCarsLoading] = useState<boolean>(true);
 
 	// Fetch Car Brands
 	useEffect(() => {
@@ -13,32 +14,35 @@ const useCars = (props?: { query?: string }) => {
 			const brands = await API.getCarBrands();
 			setCarBrands(brands.makeList);
 		})()
-			.then(() => {})
+			.then(() => {
+				setCarBrandsLoading(false);
+			})
 			.catch(() => {
-				setLoading(false);
+				setCarBrandsLoading(false);
 				console.log("Network Error -  API Request Error");
 			});
 	}, []);
 
-	// Fetch Cars Based on Query
+	// Fetch Cars - Based on Query
 	useEffect(() => {
 		(async function () {
-			if (!loading) setLoading(true);
+			if (!carsLoading) setCarsLoading(true);
 			const cars = await API.searchCars({ query: props?.query || "" });
 			setHighlightedCars(cars.result);
 		})()
 			.then(() => {
-				setLoading(false);
-				scrollBy({ left: 0, behavior: "smooth" });
+				setCarsLoading(false);
 			})
 			.catch(() => {
-				setLoading(false);
-
+				setCarsLoading(false);
 				console.log("Network Error -  API Request Error");
 			});
+		// return () => {
+		// 	if (loading) setLoading(false);
+		// };
 	}, [props?.query]);
 
-	return { cars: highlightedCars, carBrands, loading };
+	return { cars: highlightedCars, carBrands, carsLoading, carBrandsLoading };
 };
 
 export default useCars;

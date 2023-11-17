@@ -7,7 +7,7 @@ export default interface ICar {
 	year: number;
 	city: string;
 	state: string;
-	gradeScore: number;
+	gradeScore?: number;
 	sellingCondition: string;
 	hasWarranty: false;
 	marketplacePrice: number;

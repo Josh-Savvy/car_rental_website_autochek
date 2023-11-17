@@ -8,8 +8,10 @@ import useContainerScroll from "@/hooks/useContainerScroll";
 
 const ShowCaseTopDealCars = ({
 	highlightedCars,
+	loading,
 }: {
 	highlightedCars: ICar[];
+	loading: boolean;
 }) => {
 	const containerRef = useRef<HTMLDivElement>(null);
 	const { hasScrolled, isEndOfScroll } = useContainerScroll({
@@ -25,7 +27,7 @@ const ShowCaseTopDealCars = ({
 				</div>
 			)}
 			<div
-				className="flex overflow-x-scroll pb-10 hide-scroll-bar group gap-2 relative"
+				className="flex overflow-x-scroll pb-10 hide-scroll-bar group gap-2 relative mx-auto"
 				ref={containerRef}>
 				{highlightedCars
 					.map((car, i) => {
@@ -33,12 +35,13 @@ const ShowCaseTopDealCars = ({
 							<CarHighlightCard.CarHighLightWithDetailsCard
 								car={car}
 								key={i}
+								loading={loading}
 							/>
 						);
 					})
 					.slice(1)}
 			</div>
-			{!isEndOfScroll && (
+			{!isEndOfScroll && !loading && (
 				<div className="hover:shadow-xl hidden group-hover:flex absolute top-[35%] bg-white shadow w-16 p-6 h-16 right-2 rounded-full justify-center items-center animate__animated animate__fadeInRight animate__faster cursor-pointer">
 					<ArrowForwardIosOutlined />
 				</div>
