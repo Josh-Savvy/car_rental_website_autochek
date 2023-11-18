@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "../public/styles/globals.css";
+import "../public/styles/nprogress.css";
 import "animate.css";
 import "animate.css/animate.min.css";
 import "react-calendar/dist/Calendar.css";
