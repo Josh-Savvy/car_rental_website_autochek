@@ -5,6 +5,8 @@ import useCars from "@/hooks/cars/useCars";
 import { GetCarsResponseType } from "@/interfaces/api-response.interface";
 import ICar from "@/interfaces/car.interface";
 import React, { useState } from "react";
+import FilterAltIcon from "@mui/icons-material/FilterAlt";
+import { groupArrayByTag } from "@/utils";
 
 type SearchFilter = {
 	states: ICar["state"][];
@@ -13,17 +15,24 @@ type SearchFilter = {
 const SearchPageTemplate = ({
 	searchResults,
 }: {
-	searchResults: GetCarsResponseType[];
+	searchResults: GetCarsResponseType;
 }) => {
 	const {} = useCars();
 	const [filters, setFilters] = useState<SearchFilter[] | null>([
-		{ states: ["skdjhd", "sdlkfjhdjskl"] },
+		{ states: ["lagos", "sdlkfjhdjskl"] },
 	]);
+
+	const states = groupArrayByTag<ICar>(searchResults.result, "lagos");
+
+	console.log(states);
 
 	return (
 		<section className="min-h-screen">
 			<div className="mt-10">
-				<div className="bg-white flex items-center mx-auto max-w-md rounded-lg overflow-hidden gap-4 px-1">
+				<div className="bg-white flex items-center mx-auto max-w-lg rounded-lg overflow-hidden gap-4 px-1">
+					<span className="p-2 px-3 rounded bg-zinc-300 duration-300 cursor-pointer">
+						<FilterAltIcon />
+					</span>
 					<input
 						placeholder="Enter keyword.. e.g Toyota, Sienna, Audi..."
 						type="text"
@@ -36,7 +45,7 @@ const SearchPageTemplate = ({
 						className="p-2"
 					/>
 				</div>
-				<div className="bg-white p-3 flex flex-col item-center mx-auto justify-center max-w-sm mt-5">
+				<div className="bg-white p-3 flex flex-col item-center mx-auto justify-center max-w-lg mt-5">
 					<h1>Filter - </h1>
 					{filters ? (
 						<div className="">

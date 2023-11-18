@@ -31,7 +31,6 @@ const ExploreCarsContainer = () => {
 				loading={carBrandsLoading}
 				selectedBrand={selectedBrand}
 				onBrandSelect={(brand) => {
-					console.log(brand);
 					setSelectedBrand(brand);
 				}}
 			/>
