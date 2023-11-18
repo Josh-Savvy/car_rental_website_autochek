@@ -11,6 +11,7 @@ export const PrimaryButton = (props: IPrimaryButtonProps) => {
 		icon,
 		type,
 		iconClass,
+		// onClick,
 		...rest
 	} = props;
 	return !link ? (
@@ -18,6 +19,7 @@ export const PrimaryButton = (props: IPrimaryButtonProps) => {
 			type={type}
 			disabled={disabled}
 			{...rest}
+			// onClick={() => setTimeout(function () {}, 1500)} // !To do: Implement debounce/throttler here
 			className={classNames(
 				"bg-[#FE5C3C] flex text-center rounded-[5px] select-none cursor-pointer",
 				className,
@@ -35,7 +37,8 @@ export const PrimaryButton = (props: IPrimaryButtonProps) => {
 					className,
 					disabled ? "cursor-not-allowed" : "",
 				)}>
-				{buttonText}
+				{buttonText}{" "}
+				<span className={classNames("", iconClass)}>{icon}</span>
 			</button>
 		</Link>
 	);

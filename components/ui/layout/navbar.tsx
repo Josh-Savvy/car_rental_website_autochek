@@ -38,7 +38,7 @@ const Navbar = () => {
 				})}
 			</div>
 			<div className="flex items-center gap-5">
-				<Link href="/search/search">
+				<Link href="/search?query=lagos">
 					<span className="cursor-pointer bg-[#f5f5f5] p-2 rounded duration-300 hover:scale-[1.05]">
 						<SearchIcon color={"#000"} />
 					</span>

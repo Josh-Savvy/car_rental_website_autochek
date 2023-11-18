@@ -8,6 +8,10 @@ export const searchCars = async (args?: {
 	query?: string;
 }): Promise<GetCarsResponseType> => {
 	const { query } = args || {};
+	if (!query || query == "") {
+		const response = await axiosInstance.get(`/car/search`);
+		return response.data;
+	}
 	const response = await axiosInstance.get(`/car/search?query=${query}`);
 	return response.data;
 };

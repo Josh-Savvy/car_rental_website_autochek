@@ -5,14 +5,10 @@ export const calculatePercentage = (
 	return (value / maxValue) * 100;
 };
 
-export function groupArrayByTag<T extends Record<string, any>>(
-	inventory: Array<T>,
-	tag: string,
-): Record<typeof tag, T[]> {
-	return inventory.reduce((result, item) => {
-		const keyValue = item[tag] as string;
-		result[keyValue] = result[keyValue] || [];
-		result[keyValue].push(item);
-		return result;
-	}, {} as Record<typeof tag, T[]>);
+export function getArrayObjectKeyValues<T extends Record<string, any>>(
+	arrayOfObjects: T[],
+	key: string,
+): string[] {
+	const values = new Set(arrayOfObjects.map((obj) => obj[key])); //used the Set() constructor to handle dup values
+	return Array.from(values);
 }
