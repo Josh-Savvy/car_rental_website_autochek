@@ -8,15 +8,13 @@ import { buildQueryString, getUniqueValuesByKey } from "@/utils";
 import { useRouter } from "next/router";
 import CarHighlightCard from "@/components/ui/atoms/cards/car/car-highlight-card";
 import CarHighlightSkeletonCard from "@/components/ui/atoms/loaders/card-skeletons/CarHighlightSkeletonCard";
-import { capitalize } from "@mui/material";
 
 type PickedFilters = Pick<ICar, "state" | "city" | "transmission">;
-
 type ExractedFilterType = { key: string; value: string };
 
-const SearchPageTemplate = () => {
+const SearchPageTemplate = ({ query }: { query?: string }) => {
 	const router = useRouter();
-	const query = decodeURIComponent(router.query.query as string) || "";
+	// const query = decodeURIComponent(query as string) || "";
 	const providedFilters: (keyof PickedFilters)[] = [
 		"state",
 		"city",
@@ -25,7 +23,7 @@ const SearchPageTemplate = () => {
 
 	const [filters, setFilters] = useState<ExractedFilterType[]>([]);
 
-	const [searchQuery, setSearchQuery] = useState<string>("");
+	const [searchQuery, setSearchQuery] = useState<string>(query as string);
 
 	const queryString = buildQueryString<ExractedFilterType>(
 		filters,
@@ -63,7 +61,7 @@ const SearchPageTemplate = () => {
 	useEffect(() => {
 		console.log(queryString);
 		console.log(filters);
-	}, [filters]);
+	}, [filters, searchQuery]);
 
 	return (
 		<section className="min-h-screen">
@@ -73,7 +71,7 @@ const SearchPageTemplate = () => {
 						placeholder="Enter name of car.. e.g Toyota, Sienna, Audi..."
 						type="text"
 						className="bg-transparent focus:ring-0 outline-none p-4 flex-grow placeholder:font-[300]"
-						value={capitalize(searchQuery)}
+						value={searchQuery}
 						onChange={(e) => {
 							// setTimeout(function () {
 							setSearchQuery(e.target.value);
@@ -126,15 +124,7 @@ const SearchPageTemplate = () => {
 												className="w-full rounded p-2 px-4">
 												<option
 													value=""
-													className="w-full">
-													{
-														filtersValuesArray[
-															filtersValuesArray.indexOf(
-																fil,
-															)
-														].key
-													}
-												</option>
+													className=""></option>
 												{fil.values.map((fl, id) => (
 													<option
 														key={id}

@@ -51,7 +51,10 @@ const CarHighLightWithDetailsCardComp = (
 					<span className="font-[500] text-[#666]">No reviews</span>
 				)}
 			</div>
-			<h1 className="text-xl font-semibold px-1">{car.title}</h1>
+			<h1 className="text-xl font-semibold px-1 flex items-center justify-between">
+				{car.title}
+				<span className="text-sm">({car.year})</span>
+			</h1>
 			<div className="flex justify-between items-center mt-5 text-[#444]">
 				<div className="flex items-center gap-2">
 					<SpeedIcon
