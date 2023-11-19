@@ -9,14 +9,14 @@ export default interface ICar {
 	state: string;
 	gradeScore?: number;
 	sellingCondition: string;
-	hasWarranty: false;
+	hasWarranty: boolean;
 	marketplacePrice: number;
 	marketplaceOldPrice: number;
-	hasFinancing: true;
+	hasFinancing: boolean;
 	mileage: number;
 	mileageUnit: string;
 	installment: number;
-	depositReceived: false;
+	depositReceived: boolean;
 	loanValue: number;
 	websiteUrl: string;
 	stats: {
@@ -29,8 +29,8 @@ export default interface ICar {
 		processedLoanCount: number;
 	};
 	bodyTypeId: string;
-	sold: false;
-	hasThreeDImage: false;
+	sold: boolean;
+	hasThreeDImage: boolean;
 	transmission: string;
 	fuelType: string;
 	marketplaceVisibleDate: string;

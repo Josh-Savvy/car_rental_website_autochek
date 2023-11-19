@@ -24,7 +24,7 @@ const PickUpLocationNavComponent = ({
 		<section className={"pt-10 md:pt-[20dvh] min-h-[20dvh] relative z-20"}>
 			{animate ? (
 				<AnimationOnScroll animateIn="animate__fadeInUp" animateOnce>
-					<div className="bg-white shadow-lg flex flex-row gap-10 xl:gap-0 flex-wrap lg:flex-nowrap justify-between items-center mx-6 sm:mx-auto p-4 px-20 md:p-6 rounded-lg sm:max-w-[75dvw] lg:max-w-[55dvw] 2xl:max-w-[40dvw] relative z-50">
+					<div className="bg-white shadow-lg flex flex-row gap-10 xl:gap-0 flex-wrap lg:flex-nowrap justify-between items-center mx-6 sm:mx-auto p-4 px-20 md:p-6 rounded-lg sm:max-w-[95dvw] lg:max-w-[75dvw] xl:max-w-[55dvw] 2xl:max-w-[40dvw] relative z-50">
 						<PickUpLocation />
 						<PickUpDateSelector
 							openCalendar={openCalendar}
@@ -44,7 +44,7 @@ const PickUpLocationNavComponent = ({
 			) : (
 				<div
 					className={
-						"animate__animated animate__fadeInDown bg-white shadow-lg flex flex-row gap-10 xl:gap-0 flex-wrap lg:flex-nowrap justify-between items-center mx-6 sm:mx-auto p-4 px-20 md:p-6 rounded-lg sm:max-w-[75dvw] lg:max-w-[55dvw] 2xl:max-w-[40dvw] relative z-50"
+						"animate__animated animate__fadeInDown bg-white shadow-lg flex flex-row gap-10 xl:gap-0 flex-wrap lg:flex-nowrap justify-between items-center mx-6 sm:mx-auto p-4 px-20 md:p-6 rounded-lg sm:max-w-[75dvw] lg:max-w-[65dvw] 2xl:max-w-[40dvw] relative z-50"
 					}>
 					<PickUpLocation />
 					<PickUpDateSelector

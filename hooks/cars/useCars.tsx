@@ -32,6 +32,10 @@ const useCars = (props?: { query?: string }) => {
 		})()
 			.then(() => {
 				setCarsLoading(false);
+				// Simulate loading exp
+				setTimeout(function () {
+					setCarsLoading(false);
+				}, 1000);
 			})
 			.catch(() => {
 				setCarsLoading(false);

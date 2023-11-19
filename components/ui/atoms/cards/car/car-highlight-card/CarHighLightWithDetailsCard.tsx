@@ -9,16 +9,18 @@ import { GearTransmissionIcon } from "../../../icons";
 import { PrimaryButton } from "../../../buttons";
 import { motion } from "framer-motion";
 import CarHighlightSkeletonCard from "../../../loaders/card-skeletons/CarHighlightSkeletonCard";
+import classNames from "classnames";
 
 interface CarHighLightWithDetailsCardProps {
 	car: ICar;
 	loading: boolean;
+	className?: string;
 }
 
 const CarHighLightWithDetailsCardComp = (
 	props: CarHighLightWithDetailsCardProps,
 ) => {
-	const { car, loading } = props;
+	const { car, loading, className } = props;
 	const ImageSection = () => (
 		<div className="h-[55%] w-full rounded-[10px] overflow-hidden relative">
 			<img
@@ -100,7 +102,10 @@ const CarHighLightWithDetailsCardComp = (
 		<div className="inline-block px-3 animate__animated animate__fadeIn snap-start group">
 			{!loading ? (
 				<div
-					className={`w-[320px] sm:w-[385px] h-[425px] sm:h-[525px] max-w-sm 2xl:max-w-md overflow-hidden rounded-[10px] p-4 bg-white hover:shadow-lg transition-shadow duration-300 ease-in-out`}>
+					className={classNames(
+						`overflow-hidden rounded-[10px] p-4 bg-white hover:shadow-lg transition-shadow duration-300 ease-in-out w-[320px] sm:w-[385px] h-[425px] sm:h-[525px] max-w-sm 2xl:max-w-md`,
+						className,
+					)}>
 					<ImageSection />
 					<DetailSection />
 				</div>
