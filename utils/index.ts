@@ -17,38 +17,40 @@ export const calculatePercentage = (
 Get an array of unique values of a specified key from an array of objects
  * @param arrayOfObjects - Array of objects containing key-value pairs
  * @param key - The key for the values to be extracted
- * @returns An array of unique values of the specified key
+ * @returns An object consisting of the specified key as the key, and the new array of unique values of the specified key
  */
 
-export function getArrayObjectKeyValues<T extends Record<string, any>>(
+export function getUniqueValuesByKey<T extends Record<string, any>>(
 	arrayOfObjects: T[],
 	key: string,
-): string[] {
+): { key: string; values: string[] } {
 	const values = new Set(arrayOfObjects.map((obj) => obj[key])); // used the Set() constructor to create a new array unique values of the specified key
-	return Array.from(values);
+	return { key: key, values: Array.from(values) };
 }
 
 /**
  * Query string for filtering and searching
- * @param filter - The filter to include in the query string
+ * @param filters - The filter to include in the query string
  * @param searchQuery - The search query (mostly from an input element) to include in the query string
  * @returns The constructed query string
  */
-export function buildQueryString<T extends Record<string, string>>(
-	filter: { key: keyof T; value: string } | undefined,
+export function buildQueryString<T extends Record<string, any>>(
+	filters: T[],
 	searchQuery: string,
 ): string {
-	if (filter) {
+	if (filters) {
 		if (typeof searchQuery === "undefined" || !searchQuery)
-			return `${filter.value.toString().trim()}`.toLowerCase().trim();
-		return `${encodeURIComponent(searchQuery)}&${encodeURIComponent(
-			filter.key.toString().trim(),
-		)}=${filter.value.toString().trim()}`
-			.toLowerCase()
-			.trim();
+			return encodeURIComponent(
+				`${filters.map((filter) => filter.value)}`,
+			);
+		return encodeURIComponent(
+			`searchQuery&${filters.map((filter) => {
+				return `${filter.key}=${filter.value}`;
+			})}`,
+		);
 	} else if (searchQuery)
 		// if only searchqeury was povided, encode only searchQuery
-		return `${encodeURIComponent(searchQuery)}`.toLowerCase().trim();
+		return `${encodeURIComponent(searchQuery)}`;
 	// else
 	return "";
 }

@@ -73,8 +73,8 @@ const CarHighLightWithDetailsCardComp = (
 					<p className="text-sm capitalize">{car.fuelType}</p>
 				</div>
 				<div className="flex items-center gap-2">
-					<GearTransmissionIcon size={20} />
-					<p className="text-sm capitalize">{car.transmission}</p>
+					<FmdGoodOutlinedIcon fontSize="medium" />
+					<p className="text-sm capitalize">{car.state}</p>
 				</div>
 			</div>
 			<div className="flex justify-between items-center mt-5 text-[#444]">
