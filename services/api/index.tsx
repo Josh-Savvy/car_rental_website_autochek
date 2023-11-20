@@ -6,13 +6,14 @@ import {
 
 export const searchCars = async (args?: {
 	query?: string;
+	pagination?: GetCarBrandsResponseType["pagination"];
 }): Promise<GetCarsResponseType> => {
 	const { query } = args || {};
 	if (!query || query == "") {
 		const response = await axiosInstance.get(`/car/search`);
 		return response.data;
 	}
-	const response = await axiosInstance.get(`/car/search?query=${query}`);
+	const response = await axiosInstance.get(`/car/search?${query}`);
 	return response.data;
 	// const response = await new Promise<{ data: GetCarsResponseType }>(
 	// 	(resolve) =>

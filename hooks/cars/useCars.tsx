@@ -1,12 +1,19 @@
 import ICar, { ICarMake } from "@/interfaces/car.interface";
 import React, { useEffect, useState } from "react";
 import * as API from "@/services/api";
+import { GetCarBrandsResponseType } from "@/interfaces/api-response.interface";
 
-const useCars = (props?: { query?: string }) => {
+const useCars = (props?: {
+	query?: string;
+	pagination?: GetCarBrandsResponseType["pagination"];
+}) => {
 	const [highlightedCars, setHighlightedCars] = useState<ICar[]>([]);
 	const [carBrands, setCarBrands] = useState<ICarMake[]>([]);
 	const [carBrandsLoading, setCarBrandsLoading] = useState<boolean>(true);
 	const [carsLoading, setCarsLoading] = useState<boolean>(true);
+	const [pagination, setPagination] = useState<
+		GetCarBrandsResponseType["pagination"] | null
+	>(null);
 
 	// Fetch Car Brands
 	useEffect(() => {
@@ -27,8 +34,9 @@ const useCars = (props?: { query?: string }) => {
 	useEffect(() => {
 		(async function () {
 			if (!carsLoading) setCarsLoading(true);
-			const cars = await API.searchCars({ query: props?.query || "" });
+			const cars = await API.searchCars({ query: props?.query || "", });
 			setHighlightedCars(cars.result);
+			setPagination(cars.pagination);
 		})()
 			.then(() => {
 				setCarsLoading(false);
@@ -46,7 +54,13 @@ const useCars = (props?: { query?: string }) => {
 		// };
 	}, [props?.query]);
 
-	return { cars: highlightedCars, carBrands, carsLoading, carBrandsLoading };
+	return {
+		cars: highlightedCars,
+		carBrands,
+		carsLoading,
+		carBrandsLoading,
+		pagination,
+	};
 };
 
 export default useCars;

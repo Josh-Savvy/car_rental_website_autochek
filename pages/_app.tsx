@@ -54,7 +54,7 @@ export default function App({ Component, pageProps }: AppProps) {
 				/>
 			</Head>
 			<RootLayout>
-				<ToastContainer />
+				<ToastContainer limit={1} />
 				{/* <PagePreLoader /> */}
 				<Component {...pageProps} />
 			</RootLayout>
