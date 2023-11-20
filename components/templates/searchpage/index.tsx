@@ -8,10 +8,13 @@ import SearchPageResults from "@/components/ui/organisms/searchpage/search-page-
 const SearchPageTemplate = () => {
 	const router = useRouter();
 	const queryString = router.asPath.split("?")[1];
+	const query = router?.query?.query?.toString();
 
 	const { cars, carsLoading, pagination } = useCars({
 		query: queryString,
 	});
+
+	console.log(query);
 
 	return (
 		<section className="min-h-screen">
@@ -19,6 +22,7 @@ const SearchPageTemplate = () => {
 				<div className="sticky h-full min-h-[10vh] py-5 top-0 z-20 w-full bg-[#f3f3f3]/50 backdrop-blur-sm">
 					<SearchBarComponent
 						showFilterBtn
+						query={query}
 						// onSubmit={(value) => setSearchQuery(value)}
 					/>
 				</div>

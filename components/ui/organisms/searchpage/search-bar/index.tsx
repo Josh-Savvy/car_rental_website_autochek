@@ -64,6 +64,7 @@ const SearchBarComponent = forwardRef(function SearchBarComponent(
 						<SearchpageFilterSection
 							isVisible={filterIsVisible}
 							setFilterIsVisible={setFilterIsVisible}
+							
 						/>
 					</div>
 					<div className="cursor-pointer px-2">

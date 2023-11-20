@@ -16,7 +16,7 @@ const SearchPageResults = (props: {
 			<h1 className="flex items-center w-full mx-auto justify-center text-xl font-medium">
 				{`Showing ${result.length} of
 					${pagination?.total}
-					${result.length > 1 ? "results" : "result"}`}
+					${pagination?.total && pagination?.total > 1 ? "results" : "result"}`}
 			</h1>
 			<div className="my-10 grid md:grid-col-2 lg:grid-cols-3 xl:grid-cols-4 mx-auto lg:px-10 overflow-hidden">
 				{!loading && result.length >= 1 ? (
@@ -31,7 +31,7 @@ const SearchPageResults = (props: {
 						);
 					})
 				) : result.length === 0 && !loading ? (
-					<div>No results found for &quot;{searchQuery}&quot;</div>
+					<div>No results found</div>
 				) : (
 					Array.from({ length: 8 }).map((_, i) => (
 						<CarHighlightSkeletonCard.Main key={i} />
@@ -40,8 +40,8 @@ const SearchPageResults = (props: {
 			</div>
 			<div className="">
 				{pagination &&
-					Array.from({ length: pagination.pageSize }).map((_, i) => {
-						return <>{_}</>;
+					Array.from({ length: pagination.total }).map((_, i) => {
+						return <>{i + 1}</>;
 					})}
 			</div>
 		</>

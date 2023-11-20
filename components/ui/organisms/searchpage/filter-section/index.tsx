@@ -38,6 +38,7 @@ const SearchpageFilterSection = ({
 			query,
 		});
 		scrollTo({ top: 0, behavior: "smooth" });
+		setFilterIsVisible(false);
 	};
 
 	useEffect(() => {
