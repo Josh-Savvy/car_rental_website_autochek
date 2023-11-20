@@ -9,38 +9,46 @@ const SearchPageResults = (props: {
 	result: ICar[];
 	loading: boolean;
 	searchQuery?: string;
+	filter?: string;
 	pagination: GetCarsResponseType["pagination"] | null;
 }) => {
-	const { searchQuery, loading, result, pagination } = props;
+	const { searchQuery, loading, result, pagination, filter } = props;
 	const [currentPaginationIndex, setCurrentPaginationIndex] =
 		useState<number>(1);
+	const PAGINATION_THRESHOLD = 10;
 	return (
 		<>
-			<h1 className="flex items-center w-full mx-auto justify-center text-xl font-medium">
-				{`Showing ${result.length} of
+			{searchQuery && result.length > 0 && (
+				<h1 className="flex items-center w-full mx-auto justify-center text-xl font-medium">
+					{`Showing ${result.length} of
 					${pagination?.total}
 					${pagination?.total && pagination?.total > 1 ? "results" : "result"}`}
-			</h1>
-			<div className="my-10 grid md:grid-col-2 lg:grid-cols-3 xl:grid-cols-4 mx-auto lg:px-10 overflow-hidden">
-				{!loading && result.length >= 1 ? (
-					result.map((car, i) => {
+				</h1>
+			)}
+			{!loading && result.length >= 1 ? (
+				<div className="my-10 grid lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-5 lg:gap-10 mx-auto lg:px-12 overflow-hidden">
+					{result.map((car, i) => {
 						return (
 							<CarHighlightCard.CarHighLightWithDetailsCard
 								car={car}
 								key={i}
 								loading={loading}
-								// className="my-5 w-full max-w-[30dvw]"
 							/>
 						);
-					})
-				) : result.length === 0 && !loading ? (
-					<div>No results found</div>
-				) : (
-					Array.from({ length: 8 }).map((_, i) => (
+					})}
+				</div>
+			) : result.length === 0 && !loading ? (
+				<div className="text-xl text-center justify-center flex items-center">
+					🥲 No results found for {searchQuery} <br className="" />
+					[with filters - {filter}]
+				</div>
+			) : (
+				<div className="my-10 grid lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-10 mx-auto lg:px-12 overflow-hidden">
+					{Array.from({ length: 8 }).map((_, i) => (
 						<CarHighlightSkeletonCard.Main key={i} />
-					))
-				)}
-			</div>
+					))}
+				</div>
+			)}
 			<div className="flex mx-auto flex-wrap justify-center items-center gap-5 w-full max-w-[50dvw]">
 				{pagination &&
 					Array.from({ length: pagination.total })
@@ -62,7 +70,21 @@ const SearchPageResults = (props: {
 								</div>
 							);
 						})
-						.slice(0, pagination.total - result.length)}
+						.slice(0, pagination.total - result.length)
+						.slice(0, 6)}
+
+				{result.length > PAGINATION_THRESHOLD && (
+					<>
+						<span className="">.....</span>
+						<div
+							onClick={() =>
+								setCurrentPaginationIndex(PAGINATION_THRESHOLD)
+							}
+							className="hover:bg-[#fe5c23] hover:text-white p-2 px-4 text-center cursor-pointer select-none rounded duration-300 bg-gray-200">
+							{PAGINATION_THRESHOLD}
+						</div>
+					</>
+				)}
 			</div>
 		</>
 	);

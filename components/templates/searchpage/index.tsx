@@ -14,8 +14,6 @@ const SearchPageTemplate = () => {
 		query: queryString,
 	});
 
-	console.log(query);
-
 	return (
 		<section className="min-h-screen">
 			<div className="mt-10 flex flex-col gap-2 items-center">
@@ -23,6 +21,7 @@ const SearchPageTemplate = () => {
 					<SearchBarComponent
 						showFilterBtn
 						query={query}
+
 						// onSubmit={(value) => setSearchQuery(value)}
 					/>
 				</div>
@@ -32,6 +31,7 @@ const SearchPageTemplate = () => {
 						pagination,
 						result: cars,
 						searchQuery: query,
+						filter: queryString,
 					}}
 				/>
 			</div>

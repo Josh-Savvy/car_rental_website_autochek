@@ -3,6 +3,7 @@ import { ICarMake } from "@/interfaces/car.interface";
 import React from "react";
 import useWindowSize from "@/hooks/useWindowSize";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 const TopDealBrandSelector = ({
 	carBrands,
@@ -45,11 +46,14 @@ const TopDealBrandSelector = ({
 								</div>
 							))
 							.slice(0, 5)}
-						<div
-							className={`p-2 px-6 font-semibold flex justify-center items-center duration-300 gap-1 shadow rounded-lg select-none cursor-pointer hover:bg-[#FE5C3C] hover:text-white bg-white `}>
-							Explore <span className="md:flex hidden">20+ </span>
-							<span className="md:hidden">Car Makes</span>
-						</div>
+						<Link href="/search">
+							<div
+								className={`p-2 px-6 font-semibold flex justify-center items-center duration-300 gap-1 shadow rounded-lg select-none cursor-pointer hover:bg-[#FE5C3C] hover:text-white bg-white `}>
+								Explore{" "}
+								<span className="md:flex hidden">20+ </span>
+								<span className="md:hidden">Car Makes</span>
+							</div>
+						</Link>
 					</>
 				) : (
 					Array.from({ length: 4 }).map((_, i) => (
