@@ -1,12 +1,20 @@
 import ICar from "@/interfaces/car.interface";
 import { getUniqueValuesByKey } from "@/utils";
-import React, { Dispatch, SetStateAction, useEffect, useRef } from "react";
+import React, {
+	Dispatch,
+	SetStateAction,
+	useEffect,
+	useRef,
+	useState,
+} from "react";
 import FilterAltIcon from "@mui/icons-material/FilterAlt";
 import useCars from "@/hooks/cars/useCars";
 import { useRouter } from "next/router";
 import { AnimatePresence, motion } from "framer-motion";
 
-type PickedFilters = Pick<ICar, "state" | "transmission">;
+type ProvidedFiltersType = Pick<ICar, "state" | "transmission">;
+
+type FilterType = { key: string; value: string };
 
 const SearchpageFilterSection = ({
 	isVisible,
@@ -15,18 +23,25 @@ const SearchpageFilterSection = ({
 	isVisible: boolean;
 	setFilterIsVisible: Dispatch<SetStateAction<boolean>>;
 }) => {
-	const filterComponentRef = useRef<HTMLDivElement>(null);
-
 	const router = useRouter();
 	const { cars } = useCars();
-	const providedFilters: (keyof PickedFilters)[] = ["state", "transmission"];
+	const filterComponentRef = useRef<HTMLDivElement>(null);
+	const providedFilters: (keyof ProvidedFiltersType)[] = [
+		"state",
+		"transmission",
+	];
+
+	const [currentFilters, setCurrentFilters] = useState<FilterType[]>([]);
 
 	const filtersValuesArray = Array.from(
 		new Set(
-			providedFilters.map((fl) => getUniqueValuesByKey<ICar>(cars, fl)),
+			providedFilters.map((fl) =>
+				getUniqueValuesByKey<ICar>(cars, fl as keyof ICar),
+			),
 		),
 	);
-	const filterSearch = (props: { key: string; value: string | string }) => {
+
+	const filterSearch = (props: FilterType) => {
 		const { query } = router;
 		const { key, value } = props;
 		if (key && value) {
@@ -37,8 +52,18 @@ const SearchpageFilterSection = ({
 			pathname: router.pathname,
 			query,
 		});
+		// state updates
+
 		scrollTo({ top: 0, behavior: "smooth" });
 		setFilterIsVisible(false);
+
+		if (
+			!currentFilters.some(
+				(filt) => filt.key === key && value === filt.value,
+			)
+		) {
+			setCurrentFilters((prev) => [...prev, props]);
+		}
 	};
 
 	useEffect(() => {
@@ -68,9 +93,9 @@ const SearchpageFilterSection = ({
 					className="relative bg-white p-3 flex flex-col gap-3 px-5 justify-between mt-5 w-full max-w-2xl rounded-lg">
 					<span className="flex items-center gap-1">
 						<FilterAltIcon />
-						<h1 className="">Filter by</h1>
+						<h1 className="text-sm">Filter by</h1>
 					</span>
-					<div className="flex flex-col gap-3 justify-between items-center">
+					<div className="flex flex-col gap-3 justify-between items-start">
 						{filtersValuesArray.length >= 1 && (
 							<>
 								{filtersValuesArray.map((fil, ind) => {
@@ -78,7 +103,7 @@ const SearchpageFilterSection = ({
 										<>
 											<div
 												key={ind}
-												className="flex items-center gap-1">
+												className="flex items-center gap-1 capitalize text-sm">
 												{fil.key}
 											</div>
 											<select
@@ -90,9 +115,13 @@ const SearchpageFilterSection = ({
 													})
 												}
 												className="w-full rounded p-2 px-4">
-												<option
-													value=""
-													className=""></option>
+												<option value="" className="">
+													{currentFilters.find(
+														(filter) =>
+															filter.key ===
+															fil.key,
+													)?.value || ""}
+												</option>
 												{fil.values.map((fl, id) => (
 													<option
 														key={id}

@@ -31,7 +31,7 @@ const SearchPageTemplate = () => {
 						loading: carsLoading,
 						pagination,
 						result: cars,
-						searchQuery: "",
+						searchQuery: query,
 					}}
 				/>
 			</div>
