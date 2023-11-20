@@ -24,7 +24,7 @@ const ReadOurStories = () => {
 								key={i}
 							/>
 						);
-					})}
+					}).slice(0,3)}
 				</div>
 			</div>
 		</section>

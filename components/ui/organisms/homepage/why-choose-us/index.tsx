@@ -12,8 +12,8 @@ const WhyChooseUs = () => {
 		target: containerRef,
 		offset: ["center center", "center start"],
 	});
-	const y = useTransform(scrollYProgress, [0, 1], [0, -300]);
-
+	const x = useTransform(scrollYProgress, [1, 0], [-200, 0]);
+	console.log(scrollYProgress);
 	return (
 		<section
 			className="min-h-screen xs:p-5 xs:py-8 bg-white"
@@ -29,21 +29,21 @@ const WhyChooseUs = () => {
 				}}
 				animate
 			/>
-			<div className="flex lg:flex-row flex-col items-center justify-center mx-auto w-full gap-10">
-				<div className="w-full relative lg:bottom-36">
+			<div className="flex lg:flex-row flex-col items-start justify-center mx-auto w-full gap-10">
+				<div className="w-full relative right-20">
 					<AnimationOnScroll
 						animateIn="animate__fadeInLeft"
 						animateOnce>
-						<motion.img
-							transition={{
-								type: "spring",
-								damping: 10,
-								stiffness: 100,
-							}}
-							style={{ y }}
+						<img
+							// transition={{
+							// 	type: "spring",
+							// 	damping: 10,
+							// 	stiffness: 100,
+							// }}
+							// style={{ x }}
 							src="/assets/images/image_Car.png"
 							alt="car_example"
-							className="w-auto h-[75vh] lg:max-w-[70vw] absolute left-0 lg:-left-10 top-0 "
+							className="w-auto h-[75vh] lg:max-w-[70vw] absolute top-0"
 							loading="lazy"
 						/>
 					</AnimationOnScroll>
