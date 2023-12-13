@@ -41,7 +41,6 @@ const PickUpDateSelector = ({
 						tileClassName=""
 						activeStartDate={new Date()}
 						onChange={(value) => {
-							console.log("value", value);
 							setOpenCalendar(false);
 						}}
 						minDate={new Date()}

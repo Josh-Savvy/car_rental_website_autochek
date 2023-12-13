@@ -13,7 +13,6 @@ const WhyChooseUs = () => {
 		offset: ["center center", "center start"],
 	});
 	const x = useTransform(scrollYProgress, [1, 0], [-200, 0]);
-	console.log(scrollYProgress);
 	return (
 		<section
 			className="min-h-screen xs:p-5 xs:py-8 bg-white"

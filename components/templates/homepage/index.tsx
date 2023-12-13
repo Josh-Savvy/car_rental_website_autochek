@@ -11,7 +11,9 @@ const HomepageTemplate = () => {
 	return (
 		<Fragment>
 			<HomepageHero />
-			<PickUpLocationNav />
+			<div className="sm:block hidden">
+				<PickUpLocationNav />
+			</div>
 			<ExploreTopDeals />
 			<WhyChooseUs />
 			<HomepageTestimonialsSection />

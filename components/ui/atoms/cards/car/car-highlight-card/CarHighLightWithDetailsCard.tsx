@@ -17,9 +17,7 @@ interface CarHighLightWithDetailsCardProps {
 	className?: string;
 }
 
-const CarHighLightWithDetailsCardComp = (
-	props: CarHighLightWithDetailsCardProps,
-) => {
+const CarHighLightWithDetailsCardComp = (props: CarHighLightWithDetailsCardProps) => {
 	const { car, loading, className } = props;
 	const ImageSection = () => (
 		<div className="h-[55%] w-full rounded-[10px] overflow-hidden relative">
@@ -40,12 +38,8 @@ const CarHighLightWithDetailsCardComp = (
 				<StarOutlinedIcon fontSize="small" className="text-[#FE5C3C]" />
 				{car.gradeScore ? (
 					<>
-						<span className="font-[500] text-[#666]">
-							{car?.gradeScore.toFixed(1)}
-						</span>
-						<span className="font-[500] text-[#666]">
-							(50+ Reviews)
-						</span>
+						<span className="font-[500] text-[#666]">{car?.gradeScore.toFixed(1)}</span>
+						<span className="font-[500] text-[#666]">(50+ Reviews)</span>
 					</>
 				) : (
 					<span className="font-[500] text-[#666]">No reviews</span>
@@ -57,10 +51,7 @@ const CarHighLightWithDetailsCardComp = (
 			</h1>
 			<div className="flex justify-between items-center mt-5 text-[#444]">
 				<div className="flex items-center gap-2">
-					<SpeedIcon
-						fontSize="inherit"
-						className="text-2xl text-[#444]"
-					/>
+					<SpeedIcon fontSize="inherit" className="text-2xl text-[#444]" />
 					<p className="text-sm">
 						{car.mileage.toLocaleString()} {car.mileageUnit}
 					</p>
@@ -87,15 +78,10 @@ const CarHighLightWithDetailsCardComp = (
 							₦{car.installment.toLocaleString()}
 							<span className="text-[#444]">/day</span>
 						</h1>
-						<PrimaryButton
-							buttonText="Rent Now"
-							className="p-2 px-5 rounded text-white"
-						/>
+						<PrimaryButton buttonText="Rent Now" className="p-2 px-5 rounded text-white" />
 					</>
 				) : (
-					<div className="text-[#d31119] text-lg font-medium text-center">
-						Unavailable
-					</div>
+					<div className="text-[#d31119] text-lg font-medium text-center">Unavailable</div>
 				)}
 			</div>
 		</div>
@@ -106,7 +92,7 @@ const CarHighLightWithDetailsCardComp = (
 			{!loading ? (
 				<div
 					className={classNames(
-						`overflow-hidden rounded-[10px] p-4 bg-white hover:shadow-lg transition-shadow duration-300 ease-in-out w-[320px] sm:w-[385px] h-[425px] sm:h-[525px] max-w-sm 2xl:max-w-md`,
+						`overflow-hidden rounded-[10px] p-4 bg-white hover:shadow-lg transition-shadow duration-300 ease-in-out w-[500px] sm:w-[395px] h-[425px] sm:h-[525px] max-w-sm 2xl:max-w-md`,
 						className,
 					)}>
 					<ImageSection />

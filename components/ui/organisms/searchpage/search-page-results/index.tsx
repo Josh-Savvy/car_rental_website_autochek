@@ -13,8 +13,7 @@ const SearchPageResults = (props: {
 	pagination: GetCarsResponseType["pagination"] | null;
 }) => {
 	const { searchQuery, loading, result, pagination, filter } = props;
-	const [currentPaginationIndex, setCurrentPaginationIndex] =
-		useState<number>(1);
+	const [currentPaginationIndex, setCurrentPaginationIndex] = useState<number>(1);
 	const PAGINATION_THRESHOLD = 10;
 	return (
 		<>
@@ -26,15 +25,9 @@ const SearchPageResults = (props: {
 				</h1>
 			)}
 			{!loading && result.length >= 1 ? (
-				<div className="my-10 grid lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-5 lg:gap-10 mx-auto lg:px-12 overflow-hidden">
+				<div className="my-10 grid md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-5 lg:gap-10 mx-auto lg:px-12 overflow-hidden">
 					{result.map((car, i) => {
-						return (
-							<CarHighlightCard.CarHighLightWithDetailsCard
-								car={car}
-								key={i}
-								loading={loading}
-							/>
-						);
+						return <CarHighlightCard.CarHighLightWithDetailsCard car={car} key={i} loading={loading} />;
 					})}
 				</div>
 			) : result.length === 0 && !loading ? (
@@ -57,14 +50,10 @@ const SearchPageResults = (props: {
 							return (
 								<div
 									key={i}
-									onClick={() =>
-										setCurrentPaginationIndex(index)
-									}
+									onClick={() => setCurrentPaginationIndex(index)}
 									className={classNames(
 										"p-2 px-4 text-center cursor-pointer select-none rounded duration-300",
-										currentPaginationIndex === index
-											? "bg-[#fe5c23] text-white"
-											: "bg-gray-200 ",
+										currentPaginationIndex === index ? "bg-[#fe5c23] text-white" : "bg-gray-200 ",
 									)}>
 									{index}
 								</div>
@@ -77,9 +66,7 @@ const SearchPageResults = (props: {
 					<>
 						<span className="">.....</span>
 						<div
-							onClick={() =>
-								setCurrentPaginationIndex(PAGINATION_THRESHOLD)
-							}
+							onClick={() => setCurrentPaginationIndex(PAGINATION_THRESHOLD)}
 							className="hover:bg-[#fe5c23] hover:text-white p-2 px-4 text-center cursor-pointer select-none rounded duration-300 bg-gray-200">
 							{PAGINATION_THRESHOLD}
 						</div>
