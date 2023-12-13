@@ -1,6 +1,6 @@
 # AutoMobile Car Rental Website
 
-### This README provides information on how to set up and configure the application.
+This README provides information on how to set up and configure the application.
 
 ## Table of Contents
 
@@ -22,15 +22,14 @@
 
 Before you begin, ensure you have the following installed on your machine:
 
--   Node.js and npm (Node Package Manager)
--   MongoDB
+-   Node.js and npm (Node Package Manager), or Yarn (also a package manager).
 
 ### Installation
 
 1.  Clone the repository:
 <pre>
 <code>
-git clone https://github.com/your-username/autocheck-car-rental.git
+git clone https://github.com/Josh-Savvy/car_rental_website_autochek.git
 </code>
 </pre>
 
@@ -72,7 +71,7 @@ cp .env.sample .env
 </code>
 </pre>
 
-2. You should have a newly created .env file now. Replace the value repectively.
+2. You should have a newly created .env file now. Replace the env values repectively.
 
 ## Usage
 
@@ -97,20 +96,23 @@ The application will be accessible at http://localhost:3000.
 
 Open your web browser and navigate to http://localhost:3000 to access the AutoMobile Car Rental website.
 
-Car Listings
+## Features
 
-View a list of available cars for rent.
-Filter cars based on criteria such as model, brand, and price range.
-Detailed information and images for each car listing.
+### Car Listings
 
-Contributing
+-   View a list of available cars for rent.
+-   Filter cars based on criteria such as model, brand, and price range.
+-   Detailed information and images for each car listing.
 
-If you would like to contribute to the development of AutoMobile Car Rental, please follow our contribution guidelines.
-License
+## Contributing
+
+If you would like to contribute to the development of this website, kindly fork this repo and leave me a PR after, or reach out to me privately.
+
+## License
 
 This project is licensed under the MIT License.
 
-Thank you for choosing AutoMobile Car Rental. If you have any questions or encounter issues, please feel free to open an issue. Happy driving!
+If you have any questions or encounter issues, please feel free to open an issue. Thank you!
 
 ```
 
